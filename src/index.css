@@ -1,0 +1,86 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    @apply font-inter text-gray-900 antialiased;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-semibold tracking-tight;
+  }
+
+  h1 {
+    @apply text-4xl md:text-5xl lg:text-6xl;
+  }
+
+  h2 {
+    @apply text-3xl md:text-4xl;
+  }
+
+  h3 {
+    @apply text-2xl md:text-3xl;
+  }
+
+  p {
+    @apply leading-relaxed;
+  }
+}
+
+@layer components {
+  .container-custom {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+  
+  .btn {
+    @apply inline-flex items-center justify-center px-6 py-3 rounded-full font-medium transition-all duration-300 transform;
+  }
+
+  .btn-primary {
+    @apply bg-blue-500 hover:bg-blue-600 text-white shadow-md hover:shadow-lg;
+  }
+  
+  .btn-secondary {
+    @apply bg-white hover:bg-gray-50 text-blue-500 border border-blue-500 shadow-sm hover:shadow-md;
+  }
+
+  .section {
+    @apply py-16 md:py-24;
+  }
+  
+  .section-title {
+    @apply text-3xl md:text-4xl font-semibold mb-6 md:mb-8;
+  }
+  
+  .section-subtitle {
+    @apply text-xl md:text-2xl font-medium mb-4 text-gray-700;
+  }
+}
+
+/* Custom styles */
+.service-card {
+  @apply bg-white rounded-2xl p-6 shadow-sm transition-all duration-300 border border-gray-100;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.service-card:hover {
+  @apply shadow-md border-gray-200;
+  transform: translateY(-5px);
+}
+
+.industry-item {
+  @apply flex flex-col items-center justify-center text-center p-4 rounded-lg transition-all duration-300;
+}
+
+.industry-item:hover {
+  @apply bg-gray-50;
+}
