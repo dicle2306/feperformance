@@ -7,7 +7,9 @@ import Mission from "./components/Mission";
 import Contact from "./components/Contact";
 import Footer from "./components/Footer";
 import ScrollToTop from "./components/ui/ScrollToTop";
+import CookieSettings from "./components/ui/CookieSettings";
 import { LanguageProvider } from "./context/LanguageContext";
+import CookieConsentWrapper from "./components/legal/CookieConsentWrapper";
 
 function App() {
   return (
@@ -24,6 +26,8 @@ function App() {
         </main>
         <Footer />
         <ScrollToTop />
+        <CookieSettings />
+        <CookieConsentWrapper />
       </div>
     </LanguageProvider>
   );

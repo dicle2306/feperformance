@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Instagram, Facebook, Linkedin } from "lucide-react";
+import { Instagram, Facebook } from "lucide-react";
 import { useLanguage } from "../context/LanguageContext";
 import { translations } from "../translations";
 import PrivacyPolicy from "./legal/PrivacyPolicy";

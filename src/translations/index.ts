@@ -138,6 +138,15 @@ export const translations = {
     imprintContent: [
       // coming soon
     ],
+
+    // Cookie Consent
+    cookieTitle: "Cookies & Privacy",
+    cookieMessage:
+      "We use cookies and similar technologies to provide the best experience on our website. By clicking 'Accept All', you consent to store on your device all the technologies described in our",
+    cookiePolicy: "Cookie Policy in Privacy Policy",
+    cookieAcceptAll: "Accept All",
+    cookieReject: "Reject All",
+    cookieSettings: "Cookie Settings",
   },
   de: {
     // Navigation
@@ -305,5 +314,14 @@ export const translations = {
       "",
       "Quelle: e-recht24.de",
     ],
+
+    // Cookie Consent
+    cookieTitle: "Cookies & Datenschutz",
+    cookieMessage:
+      "Wir verwenden Cookies und ähnliche Technologien, um die beste Erfahrung auf unserer Website zu gewährleisten. Durch Klicken auf 'Alle akzeptieren' stimmen Sie zu, alle in unserer",
+    cookiePolicy: "Cookie-Richtlinie in unserer Datenschutzerklärung",
+    cookieAcceptAll: "Alle akzeptieren",
+    cookieReject: "Alle ablehnen",
+    cookieSettings: "Cookie-Einstellungen",
   },
 };

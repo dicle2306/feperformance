@@ -1,9 +1,12 @@
-import React from "react";
+// components/Contact.tsx
+import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import { Mail, Phone, MapPin } from "lucide-react";
 import { useLanguage } from "../context/LanguageContext";
 import { translations } from "../translations";
+// Wir importieren getCalApi, um das Cal.com Pop-Up zu initialisieren
+import { getCalApi } from "@calcom/embed-react";
 
 const ContactItem: React.FC<{
   icon: React.ReactNode;
@@ -52,6 +55,9 @@ const Contact: React.FC = () => {
   });
   const { language } = useLanguage();
 
+  // Status, ob Cal.com bereits initialisiert ist
+  const [calInitialized, setCalInitialized] = useState(false);
+
   const contactInfo = [
     {
       icon: <Mail size={24} />,
@@ -75,6 +81,40 @@ const Contact: React.FC = () => {
     },
   ];
 
+  // Funktion zum Initialisieren von Cal.com
+  const initializeCal = async () => {
+    if (calInitialized) return; // Verhindern einer doppelten Initialisierung
+    try {
+      // Mit Namespace "30min" (kann angepasst werden)
+      await getCalApi({ namespace: "30min" });
+      setCalInitialized(true);
+    } catch (err) {
+      console.error("Cal.com initialization failed:", err);
+    }
+  };
+
+  useEffect(() => {
+    // Prüfen, ob der Consent-Cookie schon existiert (value "true")
+    const hasConsent = document.cookie
+      .split(";")
+      .some((c) => c.trim().startsWith("mySiteCookieConsent=true"));
+
+    if (hasConsent) {
+      // Wenn schon akzeptiert, sofort Cal laden
+      initializeCal();
+    }
+    // Listener für spätere Annahme (onAccept)
+    const onAcceptHandler = () => {
+      initializeCal();
+    };
+    window.addEventListener("cookieConsentAccepted", onAcceptHandler);
+
+    // Optional: Listener entfernen, wenn die Komponente unmountet
+    return () => {
+      window.removeEventListener("cookieConsentAccepted", onAcceptHandler);
+    };
+  }, []);
+
   return (
     <section id="contact" className="section bg-gray-50" ref={ref}>
       <div className="container-custom">
@@ -90,13 +130,25 @@ const Contact: React.FC = () => {
           <p className="text-gray-700 mb-8">
             {translations[language].contactSubtitle}
           </p>
-          <a
-            href="#"
+          {/* Button für Cal.com-Pop-Up */}
+          <button
+            // Wir verhindern default, falls JavaScript noch nicht geladen ist
+            onClick={(e) => {
+              e.preventDefault();
+              if (!calInitialized) {
+                // Falls noch kein Consent, Hinweis anzeigen (kann man anpassen)
+                alert(translations[language].cookieMessage);
+              }
+              // Andernfalls Pop-Up öffnet sich automatisch durch Cal.com-Script
+            }}
+            // Cal.com-Attribute (Pop-Up via element click) :contentReference[oaicite:2]{index=2}
+            data-cal-namespace="30min"
+            data-cal-link="ensar-brahimi-pfbl1n/30min"
+            data-cal-config='{"layout":"month_view"}'
             className="btn btn-primary text-lg inline-block mb-12"
-            onClick={(e) => e.preventDefault()}
           >
             {translations[language].bookCall}
-          </a>
+          </button>
         </motion.div>
 
         <div className="bg-white rounded-2xl shadow-sm p-8 max-w-3xl mx-auto">
