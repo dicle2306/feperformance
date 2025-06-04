@@ -76,9 +76,10 @@ export const translations = {
     allRightsReserved: "© {year} FE Performance Media. All rights reserved.",
     privacyPolicy: "Privacy Policy",
     termsOfService: "Terms of Service",
+    imprint: "Imprint",
 
     // Privacy Policy
-    privacyTitle: "Privacy Policy",
+    privacyTitle: "Privacy Policy (Only in German)",
     privacyLastUpdated: "Last Updated: June 2024",
     privacyContent: [
       "1. Data Collection",
@@ -129,6 +130,13 @@ export const translations = {
       "5. Termination",
       "• Either party may terminate with 30 days notice",
       "• Outstanding payments remain due",
+    ],
+
+    // Imprint
+    imprintTitle: "Imprint",
+    imprintLastUpdated: "Last Updated: June 2024",
+    imprintContent: [
+      // coming soon
     ],
   },
   de: {
@@ -209,6 +217,7 @@ export const translations = {
       "© {year} FE Performance Media. Alle Rechte vorbehalten.",
     privacyPolicy: "Datenschutzerklärung",
     termsOfService: "Nutzungsbedingungen",
+    imprint: "Impressum",
 
     // Privacy Policy
     privacyTitle: "Datenschutzerklärung",
@@ -262,6 +271,39 @@ export const translations = {
       "5. Kündigung",
       "• Beide Parteien können mit 30 Tagen Frist kündigen",
       "• Ausstehende Zahlungen bleiben fällig",
+    ],
+
+    // Imprint
+    imprintTitle: "Impressum",
+    imprintLastUpdated: "Zuletzt aktualisiert: Juni 2024",
+    imprintContent: [
+      "1. Unternehmensangaben",
+      "FE Performance Media GbR",
+      "Rahlstedter Str. 7",
+      "23743 Grömitz",
+      "Deutschland",
+      "",
+      "2. Kontakt",
+      "Telefon: 015771465421",
+      "E-Mail: feperformancemedia@gmail.com",
+      "",
+      "3. Rechtliche Informationen",
+      "Umsatzsteuer-Identifikationsnummer gemäß § 27 a Umsatzsteuergesetz:",
+      "DE453706861",
+      "",
+      "4. Vertretungsberechtigte",
+      "Vertreten durch:",
+      "Ensar Brahimi und Florent Brahimi",
+      "",
+      "5. EU-Streitschlichtung",
+      "Die Europäische Kommission stellt eine Plattform zur Online-Streitbeilegung (OS) bereit:",
+      "https://ec.europa.eu/consumers/odr/",
+      "Unsere E-Mail-Adresse finden Sie oben im Impressum.",
+      "",
+      "6. Verbraucherstreitbeilegung",
+      "Wir sind nicht bereit oder verpflichtet, an Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle teilzunehmen.",
+      "",
+      "Quelle: e-recht24.de",
     ],
   },
 };

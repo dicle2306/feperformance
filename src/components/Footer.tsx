@@ -3,14 +3,13 @@ import { Instagram, Facebook, Linkedin } from "lucide-react";
 import { useLanguage } from "../context/LanguageContext";
 import { translations } from "../translations";
 import PrivacyPolicy from "./legal/PrivacyPolicy";
-import TermsOfService from "./legal/TermsOfService";
+import Imprint from "./legal/Imprint";
 
 const Footer: React.FC = () => {
   const currentYear = new Date().getFullYear();
   const { language } = useLanguage();
   const [showPrivacyPolicy, setShowPrivacyPolicy] = useState(false);
-  const [showTermsOfService, setShowTermsOfService] = useState(false);
-
+  const [showImprint, setShowImprint] = useState(false);
   return (
     <>
       <footer className="bg-gray-900 text-white">
@@ -32,25 +31,18 @@ const Footer: React.FC = () => {
               </p>
               <div className="flex space-x-4">
                 <a
-                  href="#"
+                  href="https://www.instagram.com/fe_performance_media/"
                   className="text-gray-400 hover:text-white transition-colors"
                   aria-label="Instagram"
                 >
                   <Instagram size={20} />
                 </a>
                 <a
-                  href="#"
+                  href="https://www.facebook.com/profile.php?id=61576107353534"
                   className="text-gray-400 hover:text-white transition-colors"
                   aria-label="Facebook"
                 >
                   <Facebook size={20} />
-                </a>
-                <a
-                  href="#"
-                  className="text-gray-400 hover:text-white transition-colors"
-                  aria-label="LinkedIn"
-                >
-                  <Linkedin size={20} />
                 </a>
               </div>
             </div>
@@ -135,10 +127,10 @@ const Footer: React.FC = () => {
                 {translations[language].privacyPolicy}
               </button>
               <button
-                onClick={() => setShowTermsOfService(true)}
+                onClick={() => setShowImprint(true)}
                 className="hover:text-gray-400 transition-colors"
               >
-                {translations[language].termsOfService}
+                {translations[language].imprint}
               </button>
             </div>
           </div>
@@ -148,9 +140,7 @@ const Footer: React.FC = () => {
       {showPrivacyPolicy && (
         <PrivacyPolicy onClose={() => setShowPrivacyPolicy(false)} />
       )}
-      {showTermsOfService && (
-        <TermsOfService onClose={() => setShowTermsOfService(false)} />
-      )}
+      {showImprint && <Imprint onClose={() => setShowImprint(false)} />}
     </>
   );
 };
